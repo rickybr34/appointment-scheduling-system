@@ -1,4 +1,4 @@
-# Project 8: Clinic Appointment and Patient Scheduling System
+# Clinic Appointment and Patient Scheduling System
 # Background
 
 
