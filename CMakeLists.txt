@@ -72,6 +72,7 @@ if(BUILD_TESTING)
 
     # Automated test executable
     add_executable(clinic_tests
+        tests/test_provider.cpp
         tests/test_waitlist.cpp
         tests/test_add_patient.cpp
         src/Appointment.cpp
