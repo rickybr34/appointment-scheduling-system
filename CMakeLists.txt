@@ -74,6 +74,7 @@ if(BUILD_TESTING)
     add_executable(clinic_tests
         tests/test_waitlist.cpp
         tests/test_add_patient.cpp
+        tests/test_schedule_appointment.cpp
         src/Appointment.cpp
         src/AppointmentManager.cpp
         src/Contact.cpp
