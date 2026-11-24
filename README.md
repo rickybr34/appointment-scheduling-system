@@ -54,3 +54,20 @@ The clinic needs to:
   
 This project involves scheduling operations only; your system will not store clinical diagnoses or medical
 records.
+
+# How to Build and Run
+
+## Build
+From project-8 root:
+```
+cmake -S . -B build
+cmake --build build
+```
+## Run
+```
+./build/ClinicApp
+```
+## Test
+```
+ctest --test-dir build
+```
