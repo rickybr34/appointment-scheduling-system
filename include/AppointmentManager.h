@@ -11,6 +11,9 @@ public:
     // returns -1 if a name is empty or phone is not valid, otherwise returns new id
     int addPatient(const std::string& firstName, const std::string& lastName, const Contact& contact);
 
+    // Returns all registered patients in read only view
+    const std::unordered_map<int, Patient>& getPatients() const;
+
 private:
     std::unordered_map<int, Patient> m_patients;
     int m_nextPatientId = 1;

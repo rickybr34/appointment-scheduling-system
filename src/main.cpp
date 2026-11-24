@@ -11,6 +11,26 @@ std::string readLine(const std::string& prompt) {
     return line;
 }
 
+// prints every registered patient in no particular order
+// To Do: make it print out alphabetical order
+void viewPatients(const AppointmentManager& manager){
+    const std::unordered_map<int, Patient>& patientsRegistered = manager.getPatients();
+    if(!patientsRegistered.empty()){
+        for (const auto& patient : patientsRegistered){
+            std::cout << "\nName: " << patient.second.getFullName() << std::endl;
+            std::cout << "ID: " << patient.first << std::endl;
+            const Contact& contact = patient.second.getContact();
+            std::cout << "Email: " << contact.getEmail() << std::endl;
+            std::cout << "Phone: " << contact.getPhoneNum() << std::endl;
+            std::cout << "Address: " << contact.getAddress() << std::endl;
+
+        }
+    } else {
+        std::cout << "No Patients Registered.\n" << std::endl;
+    }
+
+}
+
 int main() {
     std::cout << "\nClinic Appointment System\n" << std::endl;
     
@@ -18,8 +38,8 @@ int main() {
 
     // Demo menu to add patients or exit
     while (true){
-        std::cout << "1) Add Patient\n0) Exit\n" << std::endl;
-        std::string choice = readLine("Choose 1 or 0: ");
+        std::cout << "\n1) Add Patient\n2) View Patients\n0) Exit\n" << std::endl;
+        std::string choice = readLine("Choose number: ");
 
         if (choice == "1") {
             std::string firstName = readLine("First name: ");
@@ -46,6 +66,9 @@ int main() {
             } else {
                 std::cout << "\nNew patient " << firstName << " " << lastName << " registered with ID: " << id << "\n\n";
             }
+        } else if (choice == "2") {
+            std::cout << "\nPatients:" << std::endl;
+            viewPatients(manager);
         } else if (choice == "0") {
             break;
         }

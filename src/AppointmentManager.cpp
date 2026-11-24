@@ -13,3 +13,8 @@ int AppointmentManager::addPatient(const std::string& firstName, const std::stri
     return id;
 
 }
+
+// returns saved patients, not in any order
+const std::unordered_map<int, Patient>& AppointmentManager::getPatients() const {
+    return m_patients;
+}
