@@ -12,7 +12,6 @@ std::string readLine(const std::string& prompt) {
 }
 
 // prints every registered patient in no particular order
-// To Do: make it print out alphabetical order
 void viewPatients(const AppointmentManager& manager){
     const std::unordered_map<int, Patient>& patientsRegistered = manager.getPatients();
     if(!patientsRegistered.empty()){
@@ -23,7 +22,6 @@ void viewPatients(const AppointmentManager& manager){
             std::cout << "Email: " << contact.getEmail() << std::endl;
             std::cout << "Phone: " << contact.getPhoneNum() << std::endl;
             std::cout << "Address: " << contact.getAddress() << std::endl;
-
         }
     } else {
         std::cout << "No Patients Registered.\n" << std::endl;
