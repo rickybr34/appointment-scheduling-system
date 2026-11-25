@@ -11,14 +11,15 @@ std::string readLine(const std::string& prompt) {
     return line;
 }
 
-// prints every registered patient in no particular order
+// prints every registered patient in sorted id order
 void viewPatients(const AppointmentManager& manager){
     const std::unordered_map<int, Patient>& patientsRegistered = manager.getPatients();
     if(!patientsRegistered.empty()){
-        for (const auto& patient : patientsRegistered){
-            std::cout << "\nName: " << patient.second.getFullName() << std::endl;
-            std::cout << "ID: " << patient.first << std::endl;
-            const Contact& contact = patient.second.getContact();
+        for (int id : manager.getPatientIDsInOrder()){
+            const Patient& patient = patientsRegistered.at(id);
+            std::cout << "\nName: " << patient.getFullName() << std::endl;
+            std::cout << "ID: " << id << std::endl;
+            const Contact& contact = patient.getContact();
             std::cout << "Email: " << contact.getEmail() << std::endl;
             std::cout << "Phone: " << contact.getPhoneNum() << std::endl;
             std::cout << "Address: " << contact.getAddress() << std::endl;

@@ -3,6 +3,7 @@
 
 #include <string>
 #include <unordered_map>
+#include <vector>
 #include "Patient.h"
 
 class AppointmentManager {
@@ -13,6 +14,9 @@ public:
 
     // Returns all registered patients in read only view
     const std::unordered_map<int, Patient>& getPatients() const;
+
+    // returns a new sorted list of patient IDs in ascending order
+    std::vector<int> getPatientIDsInOrder() const;
 
 private:
     std::unordered_map<int, Patient> m_patients;
